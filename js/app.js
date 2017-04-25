@@ -45,22 +45,52 @@ function PresionaTecla(boton,oper1,flagOperacion){
       }
 }
 function calcular(){
-  var oper2=parseFloat(document.getElementById("display").innerHTML);
-  var resultado =0;
-  oper1 = parseFloat(oper1);
   switch (flagOperacion) {
     case "+":
-        resultado=oper1+oper2;        
+        oper1 = parseFloat(oper1);
+        oper2=parseFloat(document.getElementById("display").innerHTML);
+        resultado=oper1+oper2;
+        oper1=resultado;
+        flagOperacion="=+";
         break;
     case "-":
+        oper1 = parseFloat(oper1);
+        oper2=parseFloat(document.getElementById("display").innerHTML);
         resultado=oper1-oper2;
-        break;
+        oper1=resultado;
+        flagOperacion="=-";
+      break;
     case "*":
+        oper1 = parseFloat(oper1);
+        oper2=parseFloat(document.getElementById("display").innerHTML);
         resultado=oper1*oper2;
+        oper1=resultado;
+        flagOperacion="=*";
         break;
     case "/":
+        oper1 = parseFloat(oper1);
+        oper2=parseFloat(document.getElementById("display").innerHTML);
         resultado=oper1/oper2;
+        oper1=resultado;
+        flagOperacion="=/";
+        break;
+    case "=+":
+        resultado=oper1+oper2;
+        oper1=resultado;
+        break;
+    case "=-":
+        resultado=oper1-oper2;
+        oper1=resultado;
+        break;
+    case "=*":
+         resultado=oper1*oper2;
+         oper1=resultado;
+         break;
+    case "=/":
+        resultado=oper1/oper2;
+        oper1=resultado;
       }
+
       var resultadoString =""+resultado;
       if(resultadoString.length>8){
         resultadoString = resultadoString.substring(0, 7);
